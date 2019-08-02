@@ -1,7 +1,7 @@
 node {
    
    stage('Code Checkout') { 
-     git credentialsId: 'githubID', url: 'https://github.com/itrainbatman/maven-examples.git'
+     git credentialsId: 'githubID', url: 'https://https://github.com/pratheep1993/maven-examples.git'
      
     }
    stage('Build') {
@@ -15,7 +15,7 @@ node {
       } 
     }
    
-   withSonarQubeEnv(credentialsId: 'sonarqubeid') {
+   withSonarQubeEnv(credentialsId: 'sonarid') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
     sh 'mvn sonar:sonar' 
       }
