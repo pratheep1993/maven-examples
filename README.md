@@ -1,3 +1,6 @@
+#Maven Example
+[![Build Status](http://ec2-18-215-252-26.compute-1.amazonaws.com:8080/buildStatus/icon?job=maven-sonar)].(http://ec2-18-215-252-26.compute-1.amazonaws.com:8080/job/maven-sonar/)
+
 # Maven – JaCoCo code coverage example
 Maven, JUnit 5 + JaCoCo example.
 
