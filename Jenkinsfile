@@ -17,7 +17,7 @@ node {
    stage('Sonarqube analysis'){
    withSonarQubeEnv(credentialsId: 'sonar') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
-    sh 'mvn sonar:sonar -Dsonar.projectKey=pratheep1993_maven-examples-Dsonar.organization=pratheep1993-Dsonar.host.url=https://sonarcloud.io-Dsonar.login=321a4308f5d08d550b1abe91edeb88f39edc795dsonar:sonar' 
+    sh 'mvn sonar:sonar'
       }
      }
     }
