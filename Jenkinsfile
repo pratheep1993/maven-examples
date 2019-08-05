@@ -14,12 +14,12 @@ node {
      sh 'mvn test'
       } 
     }
-   stage('Sonarqube analysis'){
+   
    withSonarQubeEnv(credentialsId: 'sonar') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
     sh 'mvn sonar:sonar'
       }
-     }
+     
     }
   stage("Quality Gate"){
           timeout(time: 1, unit: 'HOURS') {
