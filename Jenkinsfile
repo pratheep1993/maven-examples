@@ -15,11 +15,11 @@ node {
       } 
     }
    stage('sonarqube analasyis'){
-     withSonarQubeEnv(credentialsId: 'sonarid')
+      withSonarQubeEnv(credentialsId: 'sonarid'){
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
     sh 'mvn sonar:sonar -Dsonar.projectKey=pratheep1993_maven-examples -Dsonar.organization=pratheep1993 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=d85d54e4d2aae20416b0163beff1e0fadafbecb5 '
       }
-     
+      }
     }
   stage("Quality Gate"){
           timeout(time: 1, unit: 'HOURS') {
