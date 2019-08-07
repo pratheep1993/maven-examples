@@ -15,7 +15,6 @@ node {
       } 
     }
    stage('Sonarqube analysis'){
-      def scannerHome = tool 'javascanner';
    withSonarQubeEnv(credentialsId: 'sonarid') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
     sh 'mvn sonar:sonar -Dsonar.projectKey=pratheep1993_maven-examples -Dsonar.organization=pratheep1993 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=81fdeebd68a9cc1389cd170cf5405664a79f5388 ' 
