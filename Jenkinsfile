@@ -1,7 +1,7 @@
 node {
    
    stage('Code Checkout') { 
-     git credentialsId: 'githubID', url: 'https://github.com/pratheep1993/maven-examples.git'
+     git credentialsId: 'githubID', url: 'https://github.com/itrainbatman/maven-examples.git'
      
     }
    stage('Build') {
@@ -14,12 +14,13 @@ node {
      sh 'mvn test'
       } 
     }
-   stage('sonarqube analasyis'){
-      withSonarQubeEnv(credentialsId: 'sonarid'){
+   stage('Sonarqube analysis'){
+      def scannerHome = tool 'javascanner';
+   withSonarQubeEnv(credentialsId: 'ItrainSonar') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
-    sh 'mvn sonar:sonar -Dsonar.projectKey=pratheep1993_maven-examples -Dsonar.organization=pratheep1993 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=d85d54e4d2aae20416b0163beff1e0fadafbecb5 '
+    sh 'mvn sonar:sonar' 
       }
-      }
+     }
     }
   stage("Quality Gate"){
           timeout(time: 1, unit: 'HOURS') {
